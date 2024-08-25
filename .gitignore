@@ -1,0 +1,7 @@
+/teste
+/zabbix-docker/*
+/persistent/*
+/Grafana/*
+wazuh/wazuh-docker/single-node/config/wazuh_indexer_ssl_certs
+/Zabbix/*
+zabbix-docker
