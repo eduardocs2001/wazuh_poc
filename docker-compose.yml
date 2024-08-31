@@ -124,33 +124,6 @@ services:
     networks:
       - wazuh-network
 
-  zabbix-server:
-    image: zabbix/zabbix-server-pgsql:latest
-    hostname: zabbix-server
-    restart: always
-    ports:
-      - "10051:10051"
-    volumes:
-      - ./Zabbix:/var/lib/zabbix
-    networks:
-      - wazuh-network
-
-  zabbix-frontend:
-    image: zabbix/zabbix-web-nginx-pgsql:latest
-    hostname: zabbix-frontend
-    restart: always
-    ports:
-      - "8080:8080"
-    environment:
-      ZBX_SERVER_HOST: zabbix-server
-      POSTGRES_USER: zabbix
-      POSTGRES_PASSWORD: zabbix
-      DB_SERVER_HOST: db
-      DB_SERVER_PORT: 5432
-    networks:
-      - wazuh-network
-    depends_on:
-      - zabbix-server
 
   db:
     image: postgres:latest
